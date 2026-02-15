@@ -115,23 +115,3 @@ Returns extracted text for DOCX/PDF/TXT. For unknown formats, returns `local_pat
 2. **Ongoing:** Claude calls `check_sources` to find new files
 3. **Per file:** Claude calls `fetch_file` to get content and summarize
 4. Files are auto-deleted after extraction
-
-## Example: Migrating from baugruppe sync
-
-Replace `sync.sh` + `track_files.py` with this config:
-
-```json
-{
-  "sources": {
-    "baugruppe": {
-      "provider": "rclone",
-      "remote": "baugruppe:",
-      "path": "Wohnprojekt_Nordwest/01_Protokolle-ALLE",
-      "flags": ["--drive-shared-with-me"],
-      "excludeFrom": "~/.config/rclone/baugruppe-exclude.txt"
-    }
-  }
-}
-```
-
-Then use the MCP tools instead of running shell scripts.
